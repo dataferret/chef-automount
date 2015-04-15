@@ -54,5 +54,6 @@ ruby_block 'autofs.direct' do
     rc.search_file_replace_line(/^\/\-/, "/- /etc/auto.direct --timeout=#{node['automount']['timeout']}")
     rc.write_file
   end
+  not_if { File.read('/etc/auto.master') =~ %r{.*/- /etc/auto.direct --timeout=#{node['automount']['timeout']}.*}m }
   notifies :restart, 'service[autofs]'
 end
