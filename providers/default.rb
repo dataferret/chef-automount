@@ -73,6 +73,7 @@ def enable_direct
   case mount_status?
   when :enabled
     Chef::Log.debug("#{new_resource} is already enabled - nothing to do")
+    return false
   when :missing, :conflict
     if mount_status? == :conflict
       Chef::Log.error("#{@new_resource} is conflicting with existing mount at #{@new_resource.mount_point}")
