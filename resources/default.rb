@@ -23,7 +23,7 @@ attribute :name, kind_of: String, name_attribute: true
 
 attribute :mount_point, kind_of: String
 attribute :device, kind_of: String, required: true
-attribute :device_type, kind_of: Symbol, equal_to: [:device, :label, :uuid], default: :device
+attribute :device_type, kind_of: Symbol, equal_to: [:device, :label, :uuid, :network], default: :device
 attribute :fstype, kind_of: String, required: true
 attribute :options, kind_of: [Array, String], default: 'defaults'
 
