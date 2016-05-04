@@ -18,3 +18,4 @@
 #
 
 default['automount']['timeout'] = 600
+default['automount']['autofs_package'] = 'autofs5'
