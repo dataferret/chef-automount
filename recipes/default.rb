@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-package 'autofs5' do
+package node['automount']['autofs_package'] do
   action :install
 end
 
