@@ -63,11 +63,9 @@ def mount_status?
     end
   end
 
-  if enabled
-    return :enabled
-  else
-    return :missing
-  end
+  return :enabled if enabled
+
+  :missing
 end
 
 # Returns true if changed, otherwise false.

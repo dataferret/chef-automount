@@ -29,7 +29,7 @@ end
 file '/etc/auto.direct' do
   owner 'root'
   group 'root'
-  mode 0640
+  mode '0640'
 
   action :create_if_missing
   notifies :restart, 'service[autofs]'
@@ -38,7 +38,7 @@ end
 file '/etc/auto.master' do
   owner 'root'
   group 'root'
-  mode 0644
+  mode '0644'
 
   action :create_if_missing
   notifies :restart, 'service[autofs]'
@@ -50,8 +50,8 @@ end
 ruby_block 'autofs.direct' do
   block do
     rc = Chef::Util::FileEdit.new('/etc/auto.master')
-    rc.insert_line_if_no_match(/^\/\-/, "/- /etc/auto.direct --timeout=#{node['automount']['timeout']}")
-    rc.search_file_replace_line(/^\/\-/, "/- /etc/auto.direct --timeout=#{node['automount']['timeout']}")
+    rc.insert_line_if_no_match(%r{^\/\-}, "/- /etc/auto.direct --timeout=#{node['automount']['timeout']}")
+    rc.search_file_replace_line(%r{^\/\-}, "/- /etc/auto.direct --timeout=#{node['automount']['timeout']}")
     rc.write_file
   end
   not_if { File.read('/etc/auto.master') =~ %r{.*/- /etc/auto.direct --timeout=#{node['automount']['timeout']}.*}m }
