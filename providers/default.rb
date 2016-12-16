@@ -73,7 +73,7 @@ def enable_direct
   case mount_status?
   when :enabled
     Chef::Log.debug("#{new_resource} is already enabled - nothing to do")
-    return false
+    false
   when :missing, :conflict
     if mount_status? == :conflict
       Chef::Log.error("#{@new_resource} is conflicting with existing mount at #{@new_resource.mount_point}")
@@ -85,9 +85,9 @@ def enable_direct
       Chef::Log.debug("#{@new_resource} is enabled at #{@new_resource.mount_point}")
     end
 
-    return true
+    true
   else
-    return false
+    false
   end
 end
 
@@ -112,9 +112,9 @@ def disable_direct
       contents.reverse_each { |line| fstab.puts line }
     end
 
-    return true
+    true
   else
     Chef::Log.debug("#{@new_resource} is not enabled - nothing to do")
-    return false
+    false
   end
 end
