@@ -2,14 +2,16 @@
 driver_plugin: vagrant
 driver_config:
   require_chef_omnibus: true
+  ssh:
+    insert_key: false
 
 provisioner:
   name: chef_zero
   data_bags_path: "test/fixtures/data_bags"
 
 platforms:
-  - name: ubuntu-12.04
-  - name: ubuntu-14.04
+  - name: ubuntu-12.04-i386
+  - name: ubuntu-14.04-i386
 
 suites:
   - name: automount
