@@ -1,7 +1,7 @@
 automount cookbook
 ------------------
 [![Cookbook Version](https://img.shields.io/cookbook/v/automount.svg)](https://supermarket.chef.io/cookbooks/automount)
-[![Dependency Status](http://img.shields.io/gemnasium/datacoda/chef-autmount.svg?style=flat)](https://gemnasium.com/datacoda/chef-automount)
+[![Dependency Status](https://gemnasium.com/badges/github.com/datacoda/chef-automount.svg)](https://gemnasium.com/github.com/datacoda/chef-automount)
 [![Build Status](https://travis-ci.org/datacoda/chef-automount.svg?branch=master)](https://travis-ci.org/datacoda/chef-automount)
 [![License](https://img.shields.io/badge/license-Apache_2-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
