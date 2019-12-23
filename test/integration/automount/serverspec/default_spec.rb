@@ -5,7 +5,7 @@ describe service('autofs') do
   it { should be_running }
 end
 
-%w(/etc/auto.master /etc/auto.direct).each do |f|
+%w[/etc/auto.master /etc/auto.direct].each do |f|
   describe file(f) do
     it { should be_file }
     it { should be_owned_by 'root' }
@@ -30,7 +30,7 @@ describe file('/mnt/testshare1') do
 end
 
 # Test mounts
-%w(/mnt/testshare2).each do |mount|
+%w[/mnt/testshare2].each do |mount|
   describe file(mount) do
     context 'with stat' do
       before :all do

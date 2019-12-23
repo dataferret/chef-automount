@@ -22,7 +22,7 @@ package node['automount']['autofs_package'] do
 end
 
 service 'autofs' do
-  supports [:enable, :disable, :restart]
+  supports %i[enable disable restart]
   action [:enable]
 end
 
