@@ -11,7 +11,7 @@ end
 
 samba_user 'testshare' do
   password 'secretpass'
-  action [:create, :enable]
+  action %i[create enable]
 end
 
 include_recipe 'samba::client'
@@ -20,7 +20,7 @@ include_recipe 'samba::client'
 include_recipe 'automount'
 
 service 'autofs' do
-  supports [:enable, :disable, :restart]
+  supports %i[enable disable restart]
   action :restart
 end
 

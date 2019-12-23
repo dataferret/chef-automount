@@ -18,11 +18,15 @@
 #
 
 action :disable do
-  new_resource.updated_by_last_action(disable_direct)
+  converge_by 'disabling direct' do
+    disable_direct
+  end
 end
 
 action :enable do
-  new_resource.updated_by_last_action(enable_direct)
+  converge_by 'enabling direct' do
+    enable_direct
+  end
 end
 
 private
